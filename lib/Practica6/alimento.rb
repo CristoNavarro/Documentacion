@@ -28,4 +28,12 @@ class Alimento
         end
 
 	################################
+	
+	####    Operadores    ####
+	
+	def +(array)
+		[(@gases + array[0]).round(2),(@terreno + array[1]).round(2)]
+	end	
+
+	##########################
 end

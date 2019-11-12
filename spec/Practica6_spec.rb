@@ -52,6 +52,12 @@ RSpec.describe Alimento do
                         expect(@nuez.kcal_total).to eq(650.0)
                 end
 	end
+
+	context "Probando la suma y la multiplicacion por un entero para el calculo del impacto: " do
+		it "Se suma los gases y el terreno de un alimento con un array [gases,terreno]." do
+			expect(@chocolate + [0.3,7.9] ).to eq([2.6,11.3])
+		end
+	end
 end
 
 RSpec.describe Dieta do
@@ -62,6 +68,7 @@ RSpec.describe Dieta do
 		@leche = Alimento.new("Leche", 3.3, 4.8, 3.2, 3.2, 8.9)
 		@cafe = Alimento.new("Cafe", 0.1, 0.0, 0.0, 0.4, 0.3)
 		@dieta = [@chocolate, @nuez, @nuez, @leche, @cafe]
+		@hombre = Dieta.new
         end
 
 	context "Probando a instanciar una dieta y las funciones para calcular el impacto de los alimentos: " do
