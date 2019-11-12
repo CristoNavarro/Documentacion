@@ -19,5 +19,9 @@ class Alimento
                 @lipidos * 9
         end
 
+	def kcal_proteinas
+		@proteinas * 4
+	end
+
 	################################
 end

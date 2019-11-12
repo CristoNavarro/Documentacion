@@ -41,5 +41,10 @@ RSpec.describe Alimento do
                         expect(@chocolate.kcal_lipidos).to eq(270.0)
                         expect(@nuez.kcal_lipidos).to eq(486.0)
                 end
+
+		it "Se calculan las kcal de las proteinas." do
+                        expect(@chocolate.kcal_proteinas).to eq(21.2)
+                        expect(@nuez.kcal_proteinas).to eq(80.0)
+                end
 	end
 end
