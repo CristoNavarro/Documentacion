@@ -30,4 +30,11 @@ RSpec.describe Alimento do
                         expect(@nuez.to_s).to eq("Nombre: Nuez, Proteinas: 20.0, Carbohidratos: 21.0, Lipidos: 54.0, Gases: 0.3, Terreno: 7.9")
                 end
         end
+
+	context "Probando las funciones para calcular el valor energetico: " do
+		it "Se calculan las kcal de los glucidos." do
+                        expect(@chocolate.kcal_glucidos).to eq(188.0)
+                        expect(@nuez.kcal_glucidos).to eq(84.0)
+		end
+	end
 end
