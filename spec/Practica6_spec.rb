@@ -53,3 +53,6 @@ RSpec.describe Alimento do
                 end
 	end
 end
+
+RSpec.describe Dieta do
+end
