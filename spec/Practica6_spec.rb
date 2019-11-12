@@ -25,5 +25,9 @@ RSpec.describe Alimento do
 	                expect(@nuez.terreno).to eq(7.9)
                 end
 
+		it "Funciona el to_s." do
+                        expect(@chocolate.to_s).to eq("Nombre: Chocolate, Proteinas: 5.3, Carbohidratos: 47.0, Lipidos: 30.0, Gases: 2.3, Terreno: 3.4")
+                        expect(@nuez.to_s).to eq("Nombre: Nuez, Proteinas: 20.0, Carbohidratos: 21.0, Lipidos: 54.0, Gases: 0.3, Terreno: 7.9")
+                end
         end
 end
