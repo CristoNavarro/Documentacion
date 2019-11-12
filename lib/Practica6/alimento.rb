@@ -15,5 +15,9 @@ class Alimento
 	        @carbohidratos * 4
         end
 
+	def kcal_lipidos
+                @lipidos * 9
+        end
+
 	################################
 end
