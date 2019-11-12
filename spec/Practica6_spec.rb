@@ -55,4 +55,18 @@ RSpec.describe Alimento do
 end
 
 RSpec.describe Dieta do
+
+	before (:all) do
+                @chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4)
+                @nuez = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
+		@leche = Alimento.new("Leche", 3.3, 4.8, 3.2, 3.2, 8.9)
+		@cafe = Alimento.new("Cafe", 0.1, 0.0, 0.0, 0.4, 0.3)
+		@dieta = [@chocolate, @nuez, @nuez, @leche, @cafe]
+        end
+
+	context "Probando a instanciar una dieta y las funciones para calcular el impacto de los alimentos: " do
+		it "Se instancia una dieta." do
+			dieta = Dieta.new
+		end
+	end
 end
