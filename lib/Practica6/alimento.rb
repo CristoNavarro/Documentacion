@@ -23,5 +23,9 @@ class Alimento
 		@proteinas * 4
 	end
 
+	def kcal_total
+                kcal_glucidos + kcal_lipidos + kcal_proteinas
+        end
+
 	################################
 end
