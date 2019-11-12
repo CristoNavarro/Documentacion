@@ -67,6 +67,7 @@ RSpec.describe Dieta do
                 @nuez = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
 		@tofu = Alimento.new("Tofu", 8.0, 1.9, 4.8, 2.0, 2.2)
 		@hombre = Dieta.new([@chocolate, @chocolate, @chocolate, @chocolate, @chocolate, @nuez, @tofu])
+		@mujer = Dieta.new([@chocolate, @chocolate, @chocolate, @chocolate, @nuez])
         end
 
 	context "Probando a instanciar una dieta y las funciones para calcular el impacto de los alimentos: " do
@@ -77,6 +78,11 @@ RSpec.describe Dieta do
 		it "Se calcula el impacto de la dieta de un hombre." do
 			expect(@hombre.impacto).to eq([13.8,27.1])
 			expect(@hombre.energia).to eq(3128.8)
+                end
+
+		it "Se calcula el impacto de la dieta de una mujer." do
+			expect(@mujer.impacto).to eq([9.5,21.5])
+			expect(@mujer.energia).to eq(2566.8)
                 end
 	end
 end
