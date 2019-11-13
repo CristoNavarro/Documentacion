@@ -78,11 +78,16 @@ RSpec.describe Dieta do
 		it "Se calcula el impacto de la dieta de un hombre." do
 			expect(@hombre.impacto).to eq([13.8,27.1])
 			expect(@hombre.energia).to eq(3128.8)
-                end
+		end
 
 		it "Se calcula el impacto de la dieta de una mujer." do
 			expect(@mujer.impacto).to eq([9.5,21.5])
 			expect(@mujer.energia).to eq(2566.8)
+                end
+		
+		it "Se calculan las proteinas de una dieta." do
+			expect(@hombre.prot).to eq(54.5)
+			expect(@mujer.prot).to eq(41.2)
                 end
 	end
 end

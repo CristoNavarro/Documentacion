@@ -15,4 +15,10 @@ class Dieta
 		@alimentos.each {|i| resultado = resultado + i.kcal_total}
 		return resultado
 	end
+
+	def prot
+		resultado = 0
+		@alimentos.each {|i| resultado = resultado + i.proteinas}
+		return resultado
+	end
 end
