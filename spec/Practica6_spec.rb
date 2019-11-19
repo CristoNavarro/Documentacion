@@ -93,4 +93,14 @@ RSpec.describe Dieta do
 end
 
 RSpec.describe Lista do
+
+	before (:all) do
+		@lista1 = Lista.new(nil)
+	end
+
+	context "Probando que se puede instanciar una lista, acceso a variables y to_s: " do
+		it "Se instancia una lista." do
+			@lista1.instance_of? Lista
+		end
+	end
 end
