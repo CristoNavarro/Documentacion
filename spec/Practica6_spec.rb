@@ -91,3 +91,6 @@ RSpec.describe Dieta do
                 end
 	end
 end
+
+RSpec.describe Lista do
+end
