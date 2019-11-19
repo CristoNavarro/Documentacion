@@ -1,5 +1,6 @@
 class Dieta
 
+
 	def initialize (array)
 		@alimentos = array
 	end
