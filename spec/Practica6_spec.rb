@@ -107,5 +107,9 @@ RSpec.describe Lista do
 			expect(@lista1.head).to eq(2)
 			expect(@lista1.tail).to eq(2)
 		end
+
+		it "Funciona el to_s." do
+			expect(@lista1.to_s).to eq("Head: 2, Tail: 2")
+		end
 	end
 end
