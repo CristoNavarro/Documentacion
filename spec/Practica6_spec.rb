@@ -95,12 +95,17 @@ end
 RSpec.describe Lista do
 
 	before (:all) do
-		@lista1 = Lista.new(nil)
+		@lista1 = Lista.new(2)
 	end
 
 	context "Probando que se puede instanciar una lista, acceso a variables y to_s: " do
 		it "Se instancia una lista." do
 			@lista1.instance_of? Lista
+		end
+
+		it "Se puede acceder a las variables de la lista." do
+			expect(@lista1.head).to eq(2)
+			expect(@lista1.tail).to eq(2)
 		end
 	end
 end
