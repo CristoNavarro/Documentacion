@@ -31,14 +31,16 @@ class Lista
 		head == nil
 	end
 
-	def insert (dato)
-		nodo = Nodo.new(dato, nil, nil)
-		if vacia
-			@head = nodo
-		else
-			nodo.prev = @tail
-			@tail.next = nodo
-		end
-		@tail = nodo
+	def insert (datos)
+		datos.each {|i|
+			nodo = Nodo.new(i, nil, nil)
+			if vacia
+				@head = nodo
+			else
+				nodo.prev = @tail
+				@tail.next = nodo
+			end
+			@tail = nodo
+		}
 	end
 end

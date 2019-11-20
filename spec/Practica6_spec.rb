@@ -94,7 +94,7 @@ end
 
 RSpec.describe Lista do
 
-	before (:all) do
+	before (:each) do
 		@nodo1 = Nodo.new(2,nil,nil)
 		@lista1 = Lista.new(@nodo1)
 		@lista2 = Lista.new(nil)
@@ -132,10 +132,17 @@ RSpec.describe Lista do
 		end
 		
 		it "Se puede insertar un elemento." do
-			@lista1.insert(4)
+			@lista1.insert([4])
 			expect(@lista1.to_s).to eq("[2 4]")
-			@lista2.insert(5)
+			@lista2.insert([5])
 			expect(@lista2.to_s).to eq("[5]")
+		end
+
+		it "Se pueden insertar varios elementos." do
+			@lista1.insert([1,5,6,3])
+			expect(@lista1.to_s).to eq("[2 1 5 6 3]")
+			@lista2.insert([2,3,4])
+			expect(@lista2.to_s).to eq("[2 3 4]")
 		end
 	end
 end
