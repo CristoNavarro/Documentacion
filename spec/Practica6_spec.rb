@@ -131,5 +131,11 @@ RSpec.describe Lista do
 			expect(@lista1.vacia).to eq(false)
 		end
 		
+		it "Se puede insertar un elemento." do
+			@lista1.insert(4)
+			expect(@lista1.to_s).to eq("[2 4]")
+			@lista2.insert(5)
+			expect(@lista2.to_s).to eq("[5]")
+		end
 	end
 end

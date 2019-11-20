@@ -30,4 +30,15 @@ class Lista
 	def vacia
 		head == nil
 	end
+
+	def insert (dato)
+		nodo = Nodo.new(dato, nil, nil)
+		if vacia
+			@head = nodo
+		else
+			nodo.prev = @tail
+			@tail.next = nodo
+		end
+		@tail = nodo
+	end
 end
