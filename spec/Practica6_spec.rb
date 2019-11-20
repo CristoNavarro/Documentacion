@@ -100,6 +100,11 @@ RSpec.describe Lista do
 		@lista2 = Lista.new(nil)
 	end
 
+	before (:all) do
+		@lista3 = Lista.new(nil)
+		@lista3.insert([2,3,4,6,1])
+	end
+
 	context "Probando que se puede instanciar una lista, acceso a variables y to_s: " do
 		it "Se instancia una lista." do
 			@lista1.instance_of? Lista
@@ -117,7 +122,7 @@ RSpec.describe Lista do
 	end
 
 	context "Probando el funcionamiento de los nodos de la lista: " do
-		it "Existe un nodo con sus datos, su siguiente y suprevio." do
+		it "Existe un nodo con sus datos, su siguiente y su previo." do
 			@nodo = Nodo.new(1,nil,nil)
 			expect(@nodo.valor).to eq(1)
 			expect(@nodo.next).to eq(nil)
@@ -143,6 +148,13 @@ RSpec.describe Lista do
 			expect(@lista1.to_s).to eq("[2 1 5 6 3]")
 			@lista2.insert([2,3,4])
 			expect(@lista2.to_s).to eq("[2 3 4]")
+		end
+
+		it "Se extrae el primer elemento." do
+			@lista3.pop_front
+			expect(@lista3.to_s).to eq("[3 4 6 1]")
+			@lista3.pop_front
+			expect(@lista3.to_s).to eq("[4 6 1]")
 		end
 	end
 end

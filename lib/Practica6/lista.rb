@@ -43,4 +43,10 @@ class Lista
 			@tail = nodo
 		}
 	end
+
+	def pop_front
+		if !vacia
+			@head = @head.next 
+		end
+	end
 end
