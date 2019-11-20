@@ -96,6 +96,7 @@ RSpec.describe Lista do
 
 	before (:all) do
 		@lista1 = Lista.new(2)
+		@lista2 = Lista.new(nil)
 	end
 
 	context "Probando que se puede instanciar una lista, acceso a variables y to_s: " do
@@ -119,6 +120,13 @@ RSpec.describe Lista do
 			expect(@nodo.valor).to eq(1)
 			expect(@nodo.next).to eq(nil)
 			expect(@nodo.prev).to eq(nil)
+		end
+	end
+
+	context "Probando el funcionamiento de la lista: " do
+		it "Se comprueba si la lista esta vacia." do
+			expect(@lista2.vacia).to eq(true)
+			expect(@lista1.vacia).to eq(false)
 		end
 	end
 end

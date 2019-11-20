@@ -10,4 +10,8 @@ class Lista
 	def to_s
 		"Head: #{@head}, Tail: #{@tail}"
 	end
+
+	def vacia
+		head == nil
+	end
 end
