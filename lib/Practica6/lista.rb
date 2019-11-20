@@ -8,7 +8,23 @@ class Lista
 	end
 
 	def to_s
-		"Head: #{@head}, Tail: #{@tail}"
+		cadena = String.new
+		if (vacia)
+			return "[]"
+		else
+			cadena << "["
+			nodo = Nodo.new(@head.valor, @head.next, @head.prev)
+
+			while nodo != tail
+				cadena << "#{nodo.valor} "
+				nodo = nodo.next
+			end
+
+			cadena << "#{nodo.valor}]"
+		end
+
+		return cadena
+			
 	end
 
 	def vacia

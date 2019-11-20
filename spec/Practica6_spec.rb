@@ -95,7 +95,8 @@ end
 RSpec.describe Lista do
 
 	before (:all) do
-		@lista1 = Lista.new(2)
+		@nodo1 = Nodo.new(2,nil,nil)
+		@lista1 = Lista.new(@nodo1)
 		@lista2 = Lista.new(nil)
 	end
 
@@ -105,12 +106,13 @@ RSpec.describe Lista do
 		end
 
 		it "Se puede acceder a las variables de la lista." do
-			expect(@lista1.head).to eq(2)
-			expect(@lista1.tail).to eq(2)
+			expect(@lista1.head).to eq(@nodo1)
+			expect(@lista1.tail).to eq(@nodo1)
 		end
 
 		it "Funciona el to_s." do
-			expect(@lista1.to_s).to eq("Head: 2, Tail: 2")
+			expect(@lista1.to_s).to eq("[2]")
+			expect(@lista2.to_s).to eq("[]")
 		end
 	end
 
@@ -128,5 +130,6 @@ RSpec.describe Lista do
 			expect(@lista2.vacia).to eq(true)
 			expect(@lista1.vacia).to eq(false)
 		end
+		
 	end
 end
