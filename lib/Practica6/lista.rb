@@ -1,3 +1,4 @@
+Nodo = Struct.new(:valor, :next, :prev)
 
 class Lista
 	attr_reader :head, :tail

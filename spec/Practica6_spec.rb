@@ -112,4 +112,13 @@ RSpec.describe Lista do
 			expect(@lista1.to_s).to eq("Head: 2, Tail: 2")
 		end
 	end
+
+	context "Probando el funcionamiento de los nodos de la lista: " do
+		it "Existe un nodo con sus datos, su siguiente y suprevio." do
+			@nodo = Nodo.new(1,nil,nil)
+			expect(@nodo.valor).to eq(1)
+			expect(@nodo.next).to eq(nil)
+			expect(@nodo.prev).to eq(nil)
+		end
+	end
 end
