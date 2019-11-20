@@ -47,6 +47,14 @@ class Lista
 	def pop_front
 		if !vacia
 			@head = @head.next 
+			@head.prev = nil
+		end
+	end
+
+	def pop_back
+		if !vacia
+			@tail = @tail.prev
+			@tail.next = nil
 		end
 	end
 end

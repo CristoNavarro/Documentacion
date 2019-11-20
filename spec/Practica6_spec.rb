@@ -98,9 +98,6 @@ RSpec.describe Lista do
 		@nodo1 = Nodo.new(2,nil,nil)
 		@lista1 = Lista.new(@nodo1)
 		@lista2 = Lista.new(nil)
-	end
-
-	before (:all) do
 		@lista3 = Lista.new(nil)
 		@lista3.insert([2,3,4,6,1])
 	end
@@ -155,6 +152,15 @@ RSpec.describe Lista do
 			expect(@lista3.to_s).to eq("[3 4 6 1]")
 			@lista3.pop_front
 			expect(@lista3.to_s).to eq("[4 6 1]")
+		end
+
+		it "Se extrae el ultimo elemento." do
+			@lista3.pop_back
+			expect(@lista3.to_s).to eq("[2 3 4 6]")
+			@lista3.pop_back
+			expect(@lista3.to_s).to eq("[2 3 4]")
+			@lista2.pop_back
+			expect(@lista2.to_s).to eq("[]")
 		end
 	end
 end
