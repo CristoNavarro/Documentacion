@@ -201,5 +201,13 @@ RSpec.describe Lista do
 			expect(@vegetaliana.gases_diarias).to eq(0.011)
 			expect(@locuracarne.gases_diarias).to eq(0.240)
 		end
+
+		it "Se calculan los metros cuadrados de uso de terreno." do
+			expect(@espanola.terreno).to eq(40.8)
+			expect(@vasca.terreno).to eq(22.6)
+			expect(@vegetaria.terreno).to eq(113.7)
+			expect(@vegetaliana.terreno).to eq(34.0)
+			expect(@locuracarne.terreno).to eq(127.0)
+		end
 	end
 end
