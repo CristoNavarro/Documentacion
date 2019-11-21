@@ -94,12 +94,33 @@ end
 
 RSpec.describe Lista do
 
+	before (:all) do
+                @chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4)
+                @nuez = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
+		@tofu = Alimento.new("Tofu", 8.0, 1.9, 4.8, 2.0, 2.2)
+		@huevo = Alimento.new("Huevo", 13.0, 1.1, 11.0, 4.2, 5.7)
+		@lentejas = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
+		@queso = Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0)
+		@cerdo = Alimento.new("Cerdo", 21.5, 0.0, 6.3, 7.6, 11.0)
+		@leche = Alimento.new("Leche de vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
+		@espanola = Lista.new(nil)
+		@vasca = Lista.new(nil)
+		@vegetaria = Lista.new(nil)
+		@vegetaliana = Lista.new(nil)
+		@locuracarne = Lista.new(nil)
+		@espanola.insert([@chocolate,@chocolate,@chocolate,@chocolate,@tofu,@nuez,@huevo,@huevo,@huevo])
+		@vasca.insert([@chocolate,@chocolate,@chocolate,@chocolate,@chocolate,@tofu,@lentejas])
+		@vegetaria.insert([@chocolate,@chocolate,@chocolate,@chocolate,@queso,@leche,@leche,@leche,@leche,@leche,@leche,@huevo])
+		@vegetaliana.insert([@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas])
+		@locuracarne.insert([@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@chocolate,@chocolate,@chocolate,@chocolate,@chocolate])
+	end
+
 	before (:each) do
 		@nodo1 = Nodo.new(2,nil,nil)
 		@lista1 = Lista.new(@nodo1)
 		@lista2 = Lista.new(nil)
 		@lista3 = Lista.new(nil)
-		@lista3.insert([2,3,4,6,1])
+		@lista3.insert([2,3,4,1,3,6,1,6,1])
 	end
 
 	context "Probando que se puede instanciar una lista, acceso a variables y to_s: " do
@@ -149,18 +170,28 @@ RSpec.describe Lista do
 
 		it "Se extrae el primer elemento." do
 			@lista3.pop_front
-			expect(@lista3.to_s).to eq("[3 4 6 1]")
+			expect(@lista3.to_s).to eq("[3 4 1 3 6 1 6 1]")
 			@lista3.pop_front
-			expect(@lista3.to_s).to eq("[4 6 1]")
+			expect(@lista3.to_s).to eq("[4 1 3 6 1 6 1]")
 		end
 
 		it "Se extrae el ultimo elemento." do
 			@lista3.pop_back
-			expect(@lista3.to_s).to eq("[2 3 4 6]")
+			expect(@lista3.to_s).to eq("[2 3 4 1 3 6 1 6]")
 			@lista3.pop_back
-			expect(@lista3.to_s).to eq("[2 3 4]")
+			expect(@lista3.to_s).to eq("[2 3 4 1 3 6 1]")
 			@lista2.pop_back
 			expect(@lista2.to_s).to eq("[]")
+		end
+	end
+
+	context "Se comprueba que se calculan los diferentes impactos de las diestas: " do
+		it "Se calculan las emisiones anueales de gases." do
+			expect(@espanola.gases_anuales).to eq(24.1)
+			expect(@vasca.gases_anuales).to eq(13.9)
+			expect(@vegetaria.gases_anuales).to eq(43.6)
+			expect(@vegetaliana.gases_anuales).to eq(4)
+			expect(@locuracarne.gases_anuales).to eq(87.5)
 		end
 	end
 end

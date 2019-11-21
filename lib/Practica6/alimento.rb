@@ -7,8 +7,8 @@ class Alimento
 
 	def to_s
                 "Nombre: #{@nombre}, Proteinas: #{@proteinas}, Carbohidratos: #{@carbohidratos}, Lipidos: #{@lipidos}, Gases: #{@gases}, Terreno: #{@terreno}"
-        end
-
+        end	
+	     
 	####    Valores energeticos ####
 	
 	def kcal_glucidos

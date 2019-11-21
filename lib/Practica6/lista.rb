@@ -57,4 +57,22 @@ class Lista
 			@tail.next = nil
 		end
 	end
+
+	def gases_anuales
+		if vacia
+			return 0
+		else
+			resultado = [0,0]
+			aux = @head
+
+			while aux != @tail
+				resultado = aux.valor + resultado
+				aux = aux.next
+			end
+			
+			resultado = aux.valor + resultado
+
+			return resultado[0]
+		end
+	end
 end
