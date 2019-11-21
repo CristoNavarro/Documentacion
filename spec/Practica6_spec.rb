@@ -186,12 +186,20 @@ RSpec.describe Lista do
 	end
 
 	context "Se comprueba que se calculan los diferentes impactos de las diestas: " do
-		it "Se calculan las emisiones anueales de gases." do
+		it "Se calculan las emisiones anuales de gases." do
 			expect(@espanola.gases_anuales).to eq(24.1)
 			expect(@vasca.gases_anuales).to eq(13.9)
 			expect(@vegetaria.gases_anuales).to eq(43.6)
 			expect(@vegetaliana.gases_anuales).to eq(4)
 			expect(@locuracarne.gases_anuales).to eq(87.5)
+		end
+
+		it "Se calculan las emisiones diarias de gases." do
+			expect(@espanola.gases_diarias).to eq(0.066)
+			expect(@vasca.gases_diarias).to eq(0.038)
+			expect(@vegetaria.gases_diarias).to eq(0.119)
+			expect(@vegetaliana.gases_diarias).to eq(0.011)
+			expect(@locuracarne.gases_diarias).to eq(0.240)
 		end
 	end
 end

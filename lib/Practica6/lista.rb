@@ -75,4 +75,8 @@ class Lista
 			return resultado[0]
 		end
 	end
+
+	def gases_diarias
+		return (gases_anuales / 365).round(3)
+	end
 end
