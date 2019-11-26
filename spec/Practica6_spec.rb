@@ -3,6 +3,7 @@ RSpec.describe Alimento do
 	before (:all) do
                 @chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4)
                 @nuez = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
+		@tofu = Alimento.new("Tofu", 8.0, 1.9, 4.8, 2.0, 2.2)
         end
 
 	context "Probando a instanciar un alimento, acceso a variables y to_s: " do
@@ -56,6 +57,20 @@ RSpec.describe Alimento do
 	context "Probando la suma y la multiplicacion por un entero para el calculo del impacto: " do
 		it "Se suma los gases y el terreno de un alimento con un array [gases,terreno]." do
 			expect(@chocolate + [0.3,7.9] ).to eq([2.6,11.3])
+		end
+	end
+
+	context "Comprobando que Alimento es comparable: " do
+		it "Funcionan los operadores de comparacion." do
+			expect(@chocolate == @nuez).to eq(false)
+			expect(@chocolate == @chocolate).to eq(true)
+			expect(@chocolate < @nuez).to eq(true)
+			expect(@chocolate > @nuez).to eq(false)
+			expect(@chocolate >= @nuez).to eq(false)
+			expect(@chocolate <= @nuez).to eq(true)
+			expect(@chocolate >= @nuez).to eq(false)
+			expect(@chocolate.between?(@tofu, @nuez)).to eq(true)
+			expect(@tofu.clamp(@chocolate, @nuez)).to eq(@chocolate)
 		end
 	end
 end
