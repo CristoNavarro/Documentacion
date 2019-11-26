@@ -27,5 +27,15 @@ class PlatoN
 
 	def prot
 		suma = 0
+		x = 0
+		cantidad = 0
+
+		@alimentos.each do |i|
+			cantidad = @gramos[x].valor / (i.proteinas + i.lipidos + i.carbohidratos)
+			suma += i.proteinas * cantidad
+			x += 1
+		end	
+
+		return ((suma * 100) / gramos_total).round(2)
 	end
 end
