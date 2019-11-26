@@ -1,4 +1,6 @@
 class PlatoN
+	attr_reader :alimentos, :gramos
+
 	def initialize (lista)
 		@alimentos = Lista.new
 		@gramos = Lista.new

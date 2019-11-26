@@ -248,13 +248,22 @@ RSpec.describe PlatoN do
 		@tofu = Alimento.new("Tofu", 8.0, 1.9, 4.8, 2.0, 2.2)
 		@lentejas = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
 		@vasca = Lista.new
-		@vasca.insert([@chocolate,@chocolate,@chocolate,@chocolate,@chocolate,@tofu,@lentejas])
+		@vasca.insert([@chocolate,@chocolate,@chocolate,@tofu,@chocolate,@lentejas,@chocolate])
+		@vasca1 = Lista.new
+		@vasca1.insert([@chocolate,@tofu,@lentejas])
+		@gramos = Lista.new
+		@gramos.insert([5000,1000,1000])
 		@pruebas = PlatoN.new(@vasca)
 	end
 
 	context "Comprobando que se puede instanciar un PlatoN y se puede acceder a sus atributos: " do
 		it "Se puede instanciar un PlatoN." do
 			expect(@pruebas.instance_of? PlatoN).to eq(true)
+		end
+
+		it "Se puede acceder a los atributos." do
+			expect(@pruebas.alimentos.valores).to eq(@vasca1.valores)
+			expect(@pruebas.gramos.valores).to eq(@gramos.valores)
 		end
 	end
 end

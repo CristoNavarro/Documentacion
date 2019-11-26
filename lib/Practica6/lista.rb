@@ -136,4 +136,18 @@ class Lista
 			return aux
 		end
 	end
+
+	def valores
+		array = Array.new(size)
+		aux = @head
+		i = 0
+
+		while aux != nil
+			array.insert(i ,aux.valor)
+			i += 1
+			aux = aux.next
+		end
+
+		return array
+	end
 end
