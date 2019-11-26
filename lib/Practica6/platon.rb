@@ -17,4 +17,16 @@ class PlatoN
 			aux = aux.next
 		end
 	end
+
+	def gramos_total
+		suma = 0
+		aux = @gramos.head
+
+		while aux != nil
+			suma += aux.valor
+			aux = aux.next
+		end
+
+		return suma
+	end
 end

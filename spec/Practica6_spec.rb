@@ -268,7 +268,8 @@ RSpec.describe PlatoN do
 	end
 
 	context "Comprobando que se calculan los porcentajes y el VCT: " do
-		it "Se calculan los porcentajes de proteinas, lipidos e hidratos." do
+		it "Se calculan los gramos totales del plato." do
+			expect(@pruebas.gramos_total).to eq(503.1)
 		end
 	end
 end
