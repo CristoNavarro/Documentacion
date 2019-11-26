@@ -271,5 +271,11 @@ RSpec.describe PlatoN do
 		it "Se calculan los gramos totales del plato." do
 			expect(@pruebas.gramos_total).to eq(503.1)
 		end
+
+		#it "Se calculan los porcentajes de proteinas, lipidos y carbohidratos." do
+		#	expect(@pruebas.prot).to eq(11.53)
+		#	expect(@pruebas.car).to eq(57.44)
+		#	expect(@pruebas.lip).to eq (31.05)
+		#end
 	end
 end

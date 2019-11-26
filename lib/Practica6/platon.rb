@@ -4,29 +4,28 @@ class PlatoN
 	def initialize (lista)
 		@alimentos = Lista.new
 		@gramos = Lista.new
-		aux = lista.head
 
-		while aux != nil
-			if (@alimentos.vacia || !@alimentos.find { |i| i == aux.valor })
-				@alimentos.insert([aux.valor])
-				@gramos.insert([(aux.valor.proteinas + aux.valor.lipidos + aux.valor.carbohidratos).round(2)])
+		lista.each do |x|
+			if (@alimentos.vacia || !@alimentos.find { |i| i == x })
+				@alimentos.insert([x])
+				@gramos.insert([(x.proteinas + x.lipidos + x.carbohidratos).round(2)])
 			else
-				@gramos[@alimentos.find_index(aux.valor)].valor += (aux.valor.proteinas + aux.valor.lipidos + aux.valor.carbohidratos).round(2) 
+				@gramos[@alimentos.find_index(x)].valor += (x.proteinas + x.lipidos + x.carbohidratos).round(2) 
 			end
-
-			aux = aux.next
 		end
 	end
 
 	def gramos_total
 		suma = 0
-		aux = @gramos.head
-
-		while aux != nil
-			suma += aux.valor
-			aux = aux.next
+		
+		@gramos.each do |i|
+			suma += i
 		end
 
 		return suma
+	end
+
+	def prot
+		suma = 0
 	end
 end
