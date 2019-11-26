@@ -241,3 +241,6 @@ RSpec.describe Lista do
 	end
 			
 end
+
+RSpec.describe PlatoN do
+end
