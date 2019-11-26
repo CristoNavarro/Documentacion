@@ -9,9 +9,9 @@ class PlatoN
 		while aux != nil
 			if (@alimentos.vacia || !@alimentos.find { |i| i == aux.valor })
 				@alimentos.insert([aux.valor])
-				@gramos.insert([1000])
+				@gramos.insert([(aux.valor.proteinas + aux.valor.lipidos + aux.valor.carbohidratos).round(2)])
 			else
-				@gramos[@alimentos.find_index(aux.valor)].valor += 1000
+				@gramos[@alimentos.find_index(aux.valor)].valor += (aux.valor.proteinas + aux.valor.lipidos + aux.valor.carbohidratos).round(2) 
 			end
 
 			aux = aux.next

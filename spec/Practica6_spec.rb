@@ -252,7 +252,7 @@ RSpec.describe PlatoN do
 		@vasca1 = Lista.new
 		@vasca1.insert([@chocolate,@tofu,@lentejas])
 		@gramos = Lista.new
-		@gramos.insert([5000,1000,1000])
+		@gramos.insert([411.5,14.7,76.9])
 		@pruebas = PlatoN.new(@vasca)
 	end
 
@@ -264,6 +264,11 @@ RSpec.describe PlatoN do
 		it "Se puede acceder a los atributos." do
 			expect(@pruebas.alimentos.valores).to eq(@vasca1.valores)
 			expect(@pruebas.gramos.valores).to eq(@gramos.valores)
+		end
+	end
+
+	context "Comprobando que se calculan los porcentajes y el VCT: " do
+		it "Se calculan los porcentajes de proteinas, lipidos e hidratos." do
 		end
 	end
 end
