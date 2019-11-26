@@ -108,4 +108,32 @@ class Lista
 		end
 
 	end
+
+	def size
+		i = 0
+		aux = @head
+
+		while aux != nil
+			i += 1
+			aux = aux.next
+		end
+
+		return i
+	end
+
+	def [] (index)
+		if index >= size
+			return nil
+		else
+			aux = @head
+			i = index
+
+			while i != 0
+				aux = aux.next
+				i -= 1
+			end
+
+			return aux
+		end
+	end
 end

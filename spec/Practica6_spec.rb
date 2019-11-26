@@ -243,4 +243,18 @@ RSpec.describe Lista do
 end
 
 RSpec.describe PlatoN do
+	before (:all) do
+                @chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4)
+		@tofu = Alimento.new("Tofu", 8.0, 1.9, 4.8, 2.0, 2.2)
+		@lentejas = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
+		@vasca = Lista.new
+		@vasca.insert([@chocolate,@chocolate,@chocolate,@chocolate,@chocolate,@tofu,@lentejas])
+		@pruebas = PlatoN.new(@vasca)
+	end
+
+	context "Comprobando que se puede instanciar un PlatoN y se puede acceder a sus atributos: " do
+		it "Se puede instanciar un PlatoN." do
+			expect(@pruebas.instance_of? PlatoN).to eq(true)
+		end
+	end
 end
