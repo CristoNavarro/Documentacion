@@ -66,4 +66,14 @@ class PlatoN
 
 		return ((suma * 100) / gramos_total).round(2)
 	end
+
+	def vct
+		suma = 0
+		
+		suma += prot * gramos_total * 4 / 100
+		suma += car * gramos_total * 4 / 100
+		suma += lip * gramos_total * 9 / 100
+		
+		return suma.round(2)
+	end	
 end
