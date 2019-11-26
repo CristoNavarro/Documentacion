@@ -118,11 +118,13 @@ RSpec.describe Lista do
 		@queso = Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0)
 		@cerdo = Alimento.new("Cerdo", 21.5, 0.0, 6.3, 7.6, 11.0)
 		@leche = Alimento.new("Leche de vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
-		@espanola = Lista.new(nil)
-		@vasca = Lista.new(nil)
-		@vegetaria = Lista.new(nil)
-		@vegetaliana = Lista.new(nil)
-		@locuracarne = Lista.new(nil)
+		@enum = Lista.new
+		@espanola = Lista.new
+		@vasca = Lista.new
+		@vegetaria = Lista.new
+		@vegetaliana = Lista.new
+		@locuracarne = Lista.new
+		@enum.insert([@chocolate,@nuez,@tofu])
 		@espanola.insert([@chocolate,@chocolate,@chocolate,@chocolate,@tofu,@nuez,@huevo,@huevo,@huevo])
 		@vasca.insert([@chocolate,@chocolate,@chocolate,@chocolate,@chocolate,@tofu,@lentejas])
 		@vegetaria.insert([@chocolate,@chocolate,@chocolate,@chocolate,@queso,@leche,@leche,@leche,@leche,@leche,@leche,@huevo])
@@ -140,7 +142,7 @@ RSpec.describe Lista do
 
 	context "Probando que se puede instanciar una lista, acceso a variables y to_s: " do
 		it "Se instancia una lista." do
-			@lista1.instance_of? Lista
+			expect(@lista1.instance_of? Lista).to eq(true)
 		end
 
 		it "Se puede acceder a las variables de la lista." do
@@ -225,4 +227,17 @@ RSpec.describe Lista do
 			expect(@locuracarne.terreno).to eq(127.0)
 		end
 	end
+
+	context "Se comprueba que la lista es enumerable: " do
+		it "Funcionan los operadores de enumerable." do
+			expect(@enum.collect { |i| i.kcal_total }).to eq([479.2,650.0,82.8])
+			expect(@enum.select { |i| i.kcal_total == 82.8 }).to eq([@tofu])
+			expect(@enum.max).to eq(@nuez)
+			expect(@enum.min).to eq(@tofu)
+			expect(@enum.sort).to eq([@tofu,@chocolate,@nuez])
+			expect(@enum.find { |i| i == @tofu }).to eq(@tofu)
+			expect(@enum.find { |i| i == @huevo }).to eq(nil)
+		end
+	end
+			
 end
