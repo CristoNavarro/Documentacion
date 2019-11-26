@@ -279,5 +279,9 @@ RSpec.describe PlatoN do
 		it "Se calcula el porcentaje de carbohidratos." do
 			expect(@pruebas.car).to eq(57.42)
 		end
+
+		it "Se calcula el porcentaje de lipidos." do
+			expect(@pruebas.lip).to eq(31.05)
+		end
 	end
 end

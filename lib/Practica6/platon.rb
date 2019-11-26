@@ -52,4 +52,18 @@ class PlatoN
 
 		return ((suma * 100) / gramos_total).round(2)
 	end
+
+	def lip
+		suma = 0
+		x = 0
+		cantidad = 0
+
+		@alimentos.each do |i|
+			cantidad = @gramos[x].valor / (i.proteinas + i.lipidos + i.carbohidratos)
+			suma += i.lipidos * cantidad
+			x += 1
+		end	
+
+		return ((suma * 100) / gramos_total).round(2)
+	end
 end
