@@ -10,7 +10,9 @@ class PlatoN
 				@alimentos.insert([x])
 				@gramos.insert([(x.proteinas + x.lipidos + x.carbohidratos).round(2)])
 			else
-				@gramos[@alimentos.find_index(x)].valor += (x.proteinas + x.lipidos + x.carbohidratos).round(2) 
+				y = @alimentos.find_index(x)
+				@gramos[y].valor += x.proteinas + x.lipidos + x.carbohidratos 
+				@gramos[y].valor = @gramos[y].valor.round(2)
 			end
 		end
 	end
@@ -22,7 +24,7 @@ class PlatoN
 			suma += i
 		end
 
-		return suma
+		return suma.round(2)
 	end
 
 	def prot

@@ -247,45 +247,62 @@ RSpec.describe PlatoN do
                 @chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4)
 		@tofu = Alimento.new("Tofu", 8.0, 1.9, 4.8, 2.0, 2.2)
 		@lentejas = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
+		@huevo = Alimento.new("Huevo", 13.0, 1.1, 11.0, 4.2, 5.7)
+                @nuez = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
 		@vasca = Lista.new
 		@vasca.insert([@chocolate,@chocolate,@chocolate,@tofu,@chocolate,@lentejas,@chocolate])
 		@vasca1 = Lista.new
 		@vasca1.insert([@chocolate,@tofu,@lentejas])
-		@gramos = Lista.new
-		@gramos.insert([411.5,14.7,76.9])
-		@pruebas = PlatoN.new(@vasca)
+		@gramos1 = Lista.new
+		@gramos1.insert([411.5,14.7,76.9])
+		@espanola = Lista.new
+		@espanola.insert([@chocolate,@chocolate,@chocolate,@chocolate,@tofu,@nuez,@huevo,@huevo,@huevo])
+		@espanola1 = Lista.new
+		@espanola1.insert([@chocolate,@tofu,@nuez,@huevo])
+		@gramos2 = Lista.new
+		@gramos2.insert([329.2,14.7,95,75.3])
+		@pruebas1 = PlatoN.new(@vasca)
+		@pruebas2 = PlatoN.new(@espanola)
 	end
 
 	context "Comprobando que se puede instanciar un PlatoN y se puede acceder a sus atributos: " do
 		it "Se puede instanciar un PlatoN." do
-			expect(@pruebas.instance_of? PlatoN).to eq(true)
+			expect(@pruebas1.instance_of? PlatoN).to eq(true)
+			expect(@pruebas2.instance_of? PlatoN).to eq(true)
 		end
 
 		it "Se puede acceder a los atributos." do
-			expect(@pruebas.alimentos.valores).to eq(@vasca1.valores)
-			expect(@pruebas.gramos.valores).to eq(@gramos.valores)
+			expect(@pruebas1.alimentos.valores).to eq(@vasca1.valores)
+			expect(@pruebas1.gramos.valores).to eq(@gramos1.valores)
+			expect(@pruebas2.alimentos.valores).to eq(@espanola1.valores)
+			expect(@pruebas2.gramos.valores).to eq(@gramos2.valores)
 		end
 	end
 
 	context "Comprobando que se calculan los porcentajes y el VCT: " do
 		it "Se calculan los gramos totales del plato." do
-			expect(@pruebas.gramos_total).to eq(503.1)
+			expect(@pruebas1.gramos_total).to eq(503.1)
+			expect(@pruebas2.gramos_total).to eq(514.2)
 		end
 
 		it "Se calcula el porcentaje de proteinas." do
-			expect(@pruebas.prot).to eq(11.53)
+			expect(@pruebas1.prot).to eq(11.53)
+			expect(@pruebas2.prot).to eq(17.15)
 		end
 
 		it "Se calcula el porcentaje de carbohidratos." do
-			expect(@pruebas.car).to eq(57.42)
+			expect(@pruebas1.car).to eq(57.42)
+			expect(@pruebas2.car).to eq(41.66)
 		end
 
 		it "Se calcula el porcentaje de lipidos." do
-			expect(@pruebas.lip).to eq(31.05)
+			expect(@pruebas1.lip).to eq(31.05)
+			expect(@pruebas2.lip).to eq(41.19)
 		end
 
 		it "Se calcula el VCT." do
-			expect(@pruebas.vct).to eq(2793.46)
+			expect(@pruebas1.vct).to eq(2793.46)
+			expect(@pruebas2.vct).to eq(3115.79)
 		end
 	end
 end
