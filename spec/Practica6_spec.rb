@@ -332,5 +332,19 @@ RSpec.describe PlatoA do
 			expect(@pruebas1.instance_of? PlatoA).to eq(true)
 			expect(@pruebas2.instance_of? PlatoA).to eq(true)
 		end
+
+		it "Comprobaciones sobre los tipos y la jerarquia." do
+			expect(@pruebas1.instance_of? PlatoN).to eq(false)
+			expect(@pruebas2.instance_of? PlatoN).to eq(false)
+			expect(@pruebas1.is_a? PlatoA).to eq(true)
+			expect(@pruebas2.is_a? PlatoA).to eq(true)
+			expect(@pruebas1.is_a? PlatoN).to eq(true)
+			expect(@pruebas2.is_a? PlatoN).to eq(true)
+			expect(@pruebas1.respond_to? ('vct')).to eq(true)
+			expect(@pruebas2.respond_to? ('vct')).to eq(true)
+			expect(@pruebas1.respond_to? ('valor')).to eq(false)
+			expect(@pruebas2.respond_to? ('valor')).to eq(false)
+			expect(PlatoA.superclass).to eq(PlatoN)
+		end
 	end
 end
