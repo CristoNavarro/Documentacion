@@ -28,4 +28,14 @@ class PlatoA < PlatoN
 
 		suma = suma.round(2)
 	end
+
+	def terreno_total
+		suma = 0
+
+		@terreno.each do |i|
+			suma += i
+		end
+
+		suma = suma.round(2)
+	end
 end

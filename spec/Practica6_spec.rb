@@ -368,5 +368,10 @@ RSpec.describe PlatoA do
 			expect(@pruebas1.gases_total).to eq(13.9)
 			expect(@pruebas2.gases_total).to eq(24.1)
 		end
+
+		it "Se estiman los metros cuadrados de uso de terreno. " do
+			expect(@pruebas1.terreno_total).to eq(22.6)
+			expect(@pruebas2.terreno_total).to eq(40.8)
+		end
 	end
 end
