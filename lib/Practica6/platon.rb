@@ -95,8 +95,10 @@ class PlatoN
 			       	x += 1
 			end
 
-			cadena = cadena.chomp(", ")
-			cadena << "]"
+			cadena << "Proteinas -> #{prot}%, "
+			cadena << "Carbohidratos -> #{car}%, "
+			cadena << "Lipidos -> #{lip}%, "
+			cadena << "VCT -> #{vct} kcal]"
 		end
 
 		return cadena

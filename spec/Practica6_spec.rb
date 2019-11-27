@@ -306,8 +306,8 @@ RSpec.describe PlatoN do
 		end
 
 		it "Se obtiene el plato formateado." do
-			expect(@pruebas1.to_s).to eq("[Chocolate -> 411.5g, Tofu -> 14.7g, Lentejas -> 76.9g]")
-			expect(@pruebas2.to_s).to eq("[Chocolate -> 329.2g, Tofu -> 14.7g, Nuez -> 95.0g, Huevo -> 75.3g]")
+			expect(@pruebas1.to_s).to eq("[Chocolate -> 411.5g, Tofu -> 14.7g, Lentejas -> 76.9g, Proteinas -> 11.53%, Carbohidratos -> 57.42%, Lipidos -> 31.05%, VCT -> 2793.46 kcal]")
+			expect(@pruebas2.to_s).to eq("[Chocolate -> 329.2g, Tofu -> 14.7g, Nuez -> 95.0g, Huevo -> 75.3g, Proteinas -> 17.15%, Carbohidratos -> 41.66%, Lipidos -> 41.19%, VCT -> 3115.79 kcal]")
 		end
 	end
 end
