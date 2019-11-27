@@ -38,4 +38,8 @@ class PlatoA < PlatoN
 
 		suma = suma.round(2)
 	end
+
+	def to_s
+		"[Gases -> #{gases_total}, Terreno -> #{terreno_total}]"
+	end
 end

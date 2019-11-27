@@ -373,5 +373,10 @@ RSpec.describe PlatoA do
 			expect(@pruebas1.terreno_total).to eq(22.6)
 			expect(@pruebas2.terreno_total).to eq(40.8)
 		end
+
+		it "Se obtiene la eficiencia energetica formateada." do
+			expect(@pruebas1.to_s).to eq("[Gases -> 13.9, Terreno -> 22.6]")
+			expect(@pruebas2.to_s).to eq("[Gases -> 24.1, Terreno -> 40.8]")
+		end
 	end
 end
