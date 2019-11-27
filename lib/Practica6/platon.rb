@@ -78,4 +78,29 @@ class PlatoN
 		
 		return suma.round(2)
 	end	
+
+	def to_s
+
+		if (@alimentos.vacia)
+			return "[]"
+		else
+			cadena = String.new
+
+			cadena << "["
+			x = 0
+
+			@alimentos.each do |i|
+				cadena << "#{i.nombre} -> "
+				cadena << "#{@gramos[x].valor}g, "
+			       	x += 1
+			end
+
+			cadena = cadena.chomp(", ")
+			cadena << "]"
+		end
+
+		return cadena
+	end	
+			
+		
 end
