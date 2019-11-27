@@ -18,4 +18,14 @@ class PlatoA < PlatoN
 			x += 1
 		end
 	end
+
+	def gases_total
+		suma = 0
+
+		@gases.each do |i|
+			suma += i
+		end
+
+		suma = suma.round(2)
+	end
 end

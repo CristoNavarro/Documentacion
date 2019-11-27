@@ -362,4 +362,11 @@ RSpec.describe PlatoA do
 			expect(@pruebas2.terreno.valores).to eq(@terreno2.valores)
 		end
 	end
+
+	context "Comprobando las funcionalidades de la clase: " do
+		it "Se calcula el valor total de las emisiones de gases. " do
+			expect(@pruebas1.gases_total).to eq(13.9)
+			expect(@pruebas2.gases_total).to eq(24.1)
+		end
+	end
 end
