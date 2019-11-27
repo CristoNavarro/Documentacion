@@ -321,8 +321,16 @@ RSpec.describe PlatoA do
                 @nuez = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
 		@vasca = Lista.new
 		@vasca.insert([@chocolate,@chocolate,@chocolate,@tofu,@chocolate,@lentejas,@chocolate])
+		@gases1 = Lista.new
+		@gases1.insert([11.5,2.0,0.4])
+		@terreno1 = Lista.new
+		@terreno1.insert([17.0,2.2,3.4])
 		@espanola = Lista.new
 		@espanola.insert([@chocolate,@chocolate,@chocolate,@chocolate,@tofu,@nuez,@huevo,@huevo,@huevo])
+		@gases2 = Lista.new
+		@gases2.insert([9.2,2.0,0.3,12.6])
+		@terreno2 = Lista.new
+		@terreno2.insert([13.6,2.2,7.9,17.1])
 		@pruebas1 = PlatoA.new(@vasca)
 		@pruebas2 = PlatoA.new(@espanola)
 	end
@@ -345,6 +353,13 @@ RSpec.describe PlatoA do
 			expect(@pruebas1.respond_to? ('valor')).to eq(false)
 			expect(@pruebas2.respond_to? ('valor')).to eq(false)
 			expect(PlatoA.superclass).to eq(PlatoN)
+		end
+
+		it "Se puede acceder a los atributos." do
+			expect(@pruebas1.gases.valores).to eq(@gases1.valores)
+			expect(@pruebas1.terreno.valores).to eq(@terreno1.valores)
+			expect(@pruebas2.gases.valores).to eq(@gases2.valores)
+			expect(@pruebas2.terreno.valores).to eq(@terreno2.valores)
 		end
 	end
 end
