@@ -311,3 +311,6 @@ RSpec.describe PlatoN do
 		end
 	end
 end
+
+RSpec.describe PlatoA do
+end

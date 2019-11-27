@@ -1,0 +1,2 @@
+class PlatoA < PlatoN
+end
