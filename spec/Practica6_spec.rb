@@ -313,4 +313,24 @@ RSpec.describe PlatoN do
 end
 
 RSpec.describe PlatoA do
+	before (:all) do
+                @chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4)
+		@tofu = Alimento.new("Tofu", 8.0, 1.9, 4.8, 2.0, 2.2)
+		@lentejas = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
+		@huevo = Alimento.new("Huevo", 13.0, 1.1, 11.0, 4.2, 5.7)
+                @nuez = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
+		@vasca = Lista.new
+		@vasca.insert([@chocolate,@chocolate,@chocolate,@tofu,@chocolate,@lentejas,@chocolate])
+		@espanola = Lista.new
+		@espanola.insert([@chocolate,@chocolate,@chocolate,@chocolate,@tofu,@nuez,@huevo,@huevo,@huevo])
+		@pruebas1 = PlatoA.new(@vasca)
+		@pruebas2 = PlatoA.new(@espanola)
+	end
+
+	context "Comprobando que se puede instanciar y acceder a los atributos: " do
+		it "Se puede instanciar." do
+			expect(@pruebas1.instance_of? PlatoA).to eq(true)
+			expect(@pruebas2.instance_of? PlatoA).to eq(true)
+		end
+	end
 end
