@@ -416,6 +416,9 @@ RSpec.describe PlatoN do
 		end
 
 		it "Se comparan platos de la dieta locura por la carne." do
+			expect(@carnea.carne).to eq(true)
+			expect(@carneb.carne).to eq(true)
+			expect(@carnec.carne).to eq(true)
 			expect(@carnea == @carneb).to eq(false)
 			expect(@carnea == @carnea).to eq(true)
 			expect(@carnec < @carneb).to eq(true)

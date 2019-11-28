@@ -151,4 +151,20 @@ class PlatoN
 
 		return true
 	end
+
+	def carne
+		cerdo = Alimento.new("Cerdo", 21.5, 0.0, 6.3, 7.6, 11.0)
+		cordero = Alimento.new("Cordero",18.0,0.0,3.1,50.0,164.0)
+		vaca = Alimento.new("Carne de vaca", 21.1,0.0,3.1,50.0,164.0)
+		pollo = Alimento.new("Pollo",20.6,0.0,5.6,5.7,7.1)
+		suma = 0
+
+		[cerdo,cordero,vaca,pollo].each do |i|
+			if (@alimentos.find_index { |x| x == i }  != nil)
+				suma += @gramos[@alimentos.find_index { |x| x == i }].valor
+			end		
+		end
+
+		return suma >= (gramos_total * 0.45)
+	end
 end
