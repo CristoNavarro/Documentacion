@@ -1,4 +1,5 @@
 class PlatoN
+	include Comparable
 	attr_reader :alimentos, :gramos
 
 	def initialize (lista)
@@ -104,5 +105,11 @@ class PlatoN
 		return cadena
 	end	
 			
-		
+	def <=> (other)
+		vct <=> other.vct
+	end
+
+	def espanola
+		return ((prot >= 14.0 || prot <= 26.0) && (car >= 34.0 || car <= 46.0) && (lip >= 34.0 || lip <= 46.0))
+	end
 end

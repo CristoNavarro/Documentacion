@@ -249,6 +249,12 @@ RSpec.describe PlatoN do
 		@lentejas = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
 		@huevo = Alimento.new("Huevo", 13.0, 1.1, 11.0, 4.2, 5.7)
                 @nuez = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
+		@queso = Alimento.new("Queso",25.0,1.3,33.0,11.0,41.0)
+		@cerdo = Alimento.new("Cerdo", 21.5, 0.0, 6.3, 7.6, 11.0)
+		@leche = Alimento.new("Leche de vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
+		@vaca = Alimento.new("Carne de vaca", 21.1,0.0,3.1,50.0,164.0)
+		@camarones = Alimento.new("Camarones",17.6,1.5,0.6,18.0,2.0)
+		@pollo = Alimento.new("Pollo",20.6,0.0,5.6,5.7,7.1)
 		@vasca = Lista.new
 		@vasca.insert([@chocolate,@chocolate,@chocolate,@tofu,@chocolate,@lentejas,@chocolate])
 		@vasca1 = Lista.new
@@ -263,6 +269,45 @@ RSpec.describe PlatoN do
 		@gramos2.insert([329.2,14.7,95,75.3])
 		@pruebas1 = PlatoN.new(@vasca)
 		@pruebas2 = PlatoN.new(@espanola)
+		@espanola3 = Lista.new
+		@espanola3.insert([@chocolate,@chocolate,@chocolate,@chocolate,@tofu,@nuez,@huevo,@huevo,@huevo])
+		@espanolaa = PlatoN.new(@espanola3)
+		@espanola4 = Lista.new
+		@espanola4.insert([@chocolate,@chocolate,@chocolate,@chocolate,@queso,@leche,@leche,@leche,@leche,@leche,@leche,@huevo])
+		@espanolab = PlatoN.new(@espanola4)
+		@espanola5 = Lista.new
+		@espanola5.insert([@chocolate,@chocolate,@chocolate,@chocolate,@chocolate,@queso,@huevo])
+		@espanolac = PlatoN.new(@espanola5)
+		@vasca3 = Lista.new
+		@vasca3.insert([@chocolate,@chocolate,@chocolate,@tofu,@chocolate,@lentejas,@chocolate])
+		@vascaa = PlatoN.new(@vasca3)
+		@vasca4 = Lista.new
+		@vasca4.insert([@chocolate,@chocolate,@chocolate,@camarones,@chocolate,@lentejas,@chocolate])
+		@vascab = PlatoN.new(@vasca4)
+		@vasca5 = Lista.new
+		@vasca5.insert([@chocolate,@chocolate,@chocolate,@vaca,@chocolate,@lentejas,@chocolate])
+		@vascac = PlatoN.new(@vasca5)
+		@vegetaria3 = Lista.new
+		@vegetaria3.insert([@chocolate,@chocolate,@chocolate,@chocolate,@queso,@leche,@leche,@leche,@leche,@leche,@leche,@huevo])
+		@vegetariaa = PlatoN.new(@vegetaria3)
+		@vegetaria4 = Lista.new
+		@vegetaria4.insert([@chocolate,@leche,@leche,@leche,@leche,@leche,@leche,@huevo,@nuez,@nuez,@queso,@lentejas,@lentejas])
+		@vegetariab = PlatoN.new(@vegetaria4)
+		@vegetaliana3 = Lista.new
+		@vegetaliana3.insert([@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas])
+		@vegetalianaa = PlatoN.new(@vegetaliana3)
+		@vegetaliana4 = Lista.new
+		@vegetaliana4.insert([@nuez,@nuez,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas])
+		@vegetalianab = PlatoN.new(@vegetaliana4)
+		@carne3 = Lista.new
+		@carne3.insert([@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@chocolate,@chocolate,@chocolate,@chocolate,@chocolate])
+		@carnea = Lista.new(@carne3)
+		@carne4 = Lista.new
+		@carne4.insert([@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@chocolate,@chocolate,@chocolate,@chocolate,@chocolate])
+		@carneb = Lista.new(@carne4)
+		@carne5 = Lista.new
+		@carne5.insert([@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@chocolate,@chocolate,@chocolate,@chocolate,@chocolate])
+		@carnec = Lista.new(@carne5)
 	end
 
 	context "Comprobando que se puede instanciar un PlatoN y se puede acceder a sus atributos: " do
@@ -308,6 +353,23 @@ RSpec.describe PlatoN do
 		it "Se obtiene el plato formateado." do
 			expect(@pruebas1.to_s).to eq("[Chocolate -> 411.5g, Tofu -> 14.7g, Lentejas -> 76.9g, Proteinas -> 11.53%, Carbohidratos -> 57.42%, Lipidos -> 31.05%, VCT -> 2793.46 kcal]")
 			expect(@pruebas2.to_s).to eq("[Chocolate -> 329.2g, Tofu -> 14.7g, Nuez -> 95.0g, Huevo -> 75.3g, Proteinas -> 17.15%, Carbohidratos -> 41.66%, Lipidos -> 41.19%, VCT -> 3115.79 kcal]")
+		end
+	end
+
+	context "Comparacion del valor nutricional entre platos de una dieta: " do
+		it "Se comparan platos de la dieta espanola." do
+			expect(@espanolaa.espanola).to eq(true)
+			expect(@espanolab.espanola).to eq(true)
+			expect(@espanolac.espanola).to eq(true)
+			expect(@espanolaa == @espanolab).to eq(false)
+			expect(@espanolaa == @espanolaa).to eq(true)
+			expect(@espanolac < @espanolaa).to eq(true)
+			expect(@espanolab > @espanolaa).to eq(false)
+			expect(@espanolab >= @espanolac).to eq(false)
+			expect(@espanolac <= @espanolaa).to eq(true)
+			expect(@espanolac >= @espanolaa).to eq(false)
+			expect(@espanolac.between?(@espanolab, @espanolaa)).to eq(true)
+			expect(@espanolaa.clamp(@espanolab, @espanolac)).to eq(@espanolac)
 		end
 	end
 end
