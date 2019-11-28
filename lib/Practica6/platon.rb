@@ -112,4 +112,8 @@ class PlatoN
 	def espanola
 		return ((prot >= 14.0 || prot <= 26.0) && (car >= 34.0 || car <= 46.0) && (lip >= 34.0 || lip <= 46.0))
 	end
+
+	def vasca
+		return ((prot >= 9.0 || prot <= 21.0) && (car >= 54.0 || car <= 66.0) && (lip >= 19.0 || lip <= 31.0))
+	end
 end

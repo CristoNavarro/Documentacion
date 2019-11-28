@@ -300,13 +300,13 @@ RSpec.describe PlatoN do
 		@vegetaliana4.insert([@nuez,@nuez,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas])
 		@vegetalianab = PlatoN.new(@vegetaliana4)
 		@carne3 = Lista.new
-		@carne3.insert([@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@chocolate,@chocolate,@chocolate,@chocolate,@chocolate])
+		@carne3.insert([@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@chocolate,@chocolate,@chocolate])
 		@carnea = Lista.new(@carne3)
 		@carne4 = Lista.new
-		@carne4.insert([@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@chocolate,@chocolate,@chocolate,@chocolate,@chocolate])
+		@carne4.insert([@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@chocolate,@chocolate,@chocolate])
 		@carneb = Lista.new(@carne4)
 		@carne5 = Lista.new
-		@carne5.insert([@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@chocolate,@chocolate,@chocolate,@chocolate,@chocolate])
+		@carne5.insert([@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@chocolate,@chocolate,@chocolate])
 		@carnec = Lista.new(@carne5)
 	end
 
@@ -370,6 +370,21 @@ RSpec.describe PlatoN do
 			expect(@espanolac >= @espanolaa).to eq(false)
 			expect(@espanolac.between?(@espanolab, @espanolaa)).to eq(true)
 			expect(@espanolaa.clamp(@espanolab, @espanolac)).to eq(@espanolac)
+		end
+
+		it "Se comparan platos de la dieta vasca." do
+			expect(@vascaa.vasca).to eq(true)
+			expect(@vascab.vasca).to eq(true)
+			expect(@vascac.vasca).to eq(true)
+			expect(@vascaa == @vascab).to eq(false)
+			expect(@vascaa == @vascaa).to eq(true)
+			expect(@vascab < @vascaa).to eq(true)
+			expect(@vascab > @vascac).to eq(false)
+			expect(@vascab >= @vascac).to eq(false)
+			expect(@vascaa <= @vascac).to eq(true)
+			expect(@vascaa >= @vascac).to eq(false)
+			expect(@vascaa.between?(@vascab, @vascac)).to eq(true)
+			expect(@vascac.clamp(@vascab, @vascaa)).to eq(@vascaa)
 		end
 	end
 end
