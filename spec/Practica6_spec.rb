@@ -308,6 +308,8 @@ RSpec.describe PlatoN do
 		@carne5 = Lista.new
 		@carne5.insert([@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@chocolate,@chocolate,@chocolate])
 		@carneb = PlatoA.new(@carne5)
+		@lista1 = Lista.new
+		@lista1.insert([@espanolaa,@vascab,@vegetariab,@carnec])
 	end
 
 	context "Comprobando que se puede instanciar un PlatoN y se puede acceder a sus atributos: " do
@@ -418,6 +420,16 @@ RSpec.describe PlatoN do
 			expect(@carneb <= @carnea).to eq(true)
 			expect(@carneb.between?(@carnec, @carnea)).to eq(true)
 			expect(@carnec.clamp(@carneb, @carnea)).to eq(@carneb)
+		end
+	end
+
+	context "Pruebas para listas de platos: " do
+		it "Funcionan las pruebas para enumerar lsitas de platos." do
+			expect(@lista1.collect { |i| i.vct }).to eq([3115.79,2792.52,3333.55,2560.61])
+			expect(@lista1.select { |i| i.vct == 2792.52 }).to eq([@vascab])
+			expect(@lista1.max).to eq(@vegetariab)
+			expect(@lista1.min).to eq(@carnec)
+			expect(@lista1.sort).to eq([@carnec,@vascab,@espanolaa,@vegetariab])
 		end
 	end
 end
