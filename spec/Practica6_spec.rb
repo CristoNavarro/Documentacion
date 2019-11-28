@@ -403,6 +403,8 @@ RSpec.describe PlatoN do
 		end
 
 		it "Se comparan platos de la dieta vegetaliana." do
+			expect(@vegetalianaa.vegetaliana).to eq(true)
+			expect(@vegetalianab.vegetaliana).to eq(true)
 			expect(@vegetalianaa == @vegetalianab).to eq(false)
 			expect(@vegetalianaa == @vegetalianaa).to eq(true)
 			expect(@vegetalianaa < @vegetalianab).to eq(true)
