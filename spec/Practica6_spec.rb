@@ -309,7 +309,15 @@ RSpec.describe PlatoN do
 		@carne5.insert([@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@chocolate,@chocolate,@chocolate])
 		@carneb = PlatoA.new(@carne5)
 		@lista1 = Lista.new
-		@lista1.insert([@espanolaa,@vascab,@vegetariab,@carnec])
+		@lista1.insert([@espanolaa,@espanolab,@espanolac])
+		@lista2 = Lista.new
+		@lista2.insert([@vascaa,@vascab,@vascac])
+		@lista3 = Lista.new
+		@lista3.insert([@vegetariaa,@vegetariab])
+		@lista4 = Lista.new
+		@lista4.insert([@vegetalianaa,@vegetalianab])
+		@lista5 = Lista.new
+		@lista5.insert([@carnea,@carneb,@carnec])
 	end
 
 	context "Comprobando que se puede instanciar un PlatoN y se puede acceder a sus atributos: " do
@@ -431,12 +439,44 @@ RSpec.describe PlatoN do
 	end
 
 	context "Pruebas para listas de platos: " do
-		it "Funcionan las pruebas para enumerar lsitas de platos." do
-			expect(@lista1.collect { |i| i.vct }).to eq([3115.79,2792.52,3333.55,2560.61])
-			expect(@lista1.select { |i| i.vct == 2792.52 }).to eq([@vascab])
-			expect(@lista1.max).to eq(@vegetariab)
-			expect(@lista1.min).to eq(@carnec)
-			expect(@lista1.sort).to eq([@carnec,@vascab,@espanolaa,@vegetariab])
+		it "Dieta espanola." do
+			expect(@lista1.collect { |i| i.vct }).to eq([3115.79,2841.7,2953.58])
+			expect(@lista1.select { |i| i.vct == 2953.58 }).to eq([@espanolac])
+			expect(@lista1.max).to eq(@espanolaa)
+			expect(@lista1.min).to eq(@espanolab)
+			expect(@lista1.sort).to eq([@espanolab,@espanolac,@espanolaa])
+		end
+
+		it "Dieta vasca." do
+			expect(@lista2.collect { |i| i.vct }).to eq([2793.46,2792.52,2822.89])
+			expect(@lista2.select { |i| i.vct == 2793.46 }).to eq([@vascaa])
+			expect(@lista2.max).to eq(@vascac)
+			expect(@lista2.min).to eq(@vascab)
+			expect(@lista2.sort).to eq([@vascab,@vascaa,@vascac])
+		end
+
+		it "Dieta vegetaria" do
+			expect(@lista3.collect { |i| i.vct }).to eq([2841.7,3333.55])
+			expect(@lista3.select { |i| i.vct == 3333.55 }).to eq([@vegetariab])
+			expect(@lista3.max).to eq(@vegetariab)
+			expect(@lista3.min).to eq(@vegetariaa)
+			expect(@lista3.sort).to eq([@vegetariaa,@vegetariab])
+		end
+
+		it "Dieta vegetaliana." do
+			expect(@lista4.collect { |i| i.vct }).to eq([3145.98,3816.65])
+			expect(@lista4.select { |i| i.vct == 3145.98 }).to eq([@vegetalianaa])
+			expect(@lista4.max).to eq(@vegetalianab)
+			expect(@lista4.min).to eq(@vegetalianaa)
+			expect(@lista4.sort).to eq([@vegetalianaa,@vegetalianab])
+		end
+
+		it "Dieta locura por la carne." do
+			expect(@lista5.collect { |i| i.vct }).to eq([2864.64,2765.62,2560.61])
+			expect(@lista5.select { |i| i.vct == 2765.62 }).to eq([@carneb])
+			expect(@lista5.max).to eq(@carnea)
+			expect(@lista5.min).to eq(@carnec)
+			expect(@lista5.sort).to eq([@carnec,@carneb,@carnea])
 		end
 	end
 end
