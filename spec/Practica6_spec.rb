@@ -271,43 +271,43 @@ RSpec.describe PlatoN do
 		@pruebas2 = PlatoN.new(@espanola)
 		@espanola3 = Lista.new
 		@espanola3.insert([@chocolate,@chocolate,@chocolate,@chocolate,@tofu,@nuez,@huevo,@huevo,@huevo])
-		@espanolaa = PlatoN.new(@espanola3)
+		@espanolaa = PlatoA.new(@espanola3)
 		@espanola4 = Lista.new
 		@espanola4.insert([@chocolate,@chocolate,@chocolate,@chocolate,@queso,@leche,@leche,@leche,@leche,@leche,@leche,@huevo])
-		@espanolab = PlatoN.new(@espanola4)
+		@espanolab = PlatoA.new(@espanola4)
 		@espanola5 = Lista.new
 		@espanola5.insert([@chocolate,@chocolate,@chocolate,@chocolate,@chocolate,@queso,@huevo])
-		@espanolac = PlatoN.new(@espanola5)
+		@espanolac = PlatoA.new(@espanola5)
 		@vasca3 = Lista.new
 		@vasca3.insert([@chocolate,@chocolate,@chocolate,@tofu,@chocolate,@lentejas,@chocolate])
-		@vascaa = PlatoN.new(@vasca3)
+		@vascaa = PlatoA.new(@vasca3)
 		@vasca4 = Lista.new
 		@vasca4.insert([@chocolate,@chocolate,@chocolate,@camarones,@chocolate,@lentejas,@chocolate])
-		@vascab = PlatoN.new(@vasca4)
+		@vascab = PlatoA.new(@vasca4)
 		@vasca5 = Lista.new
 		@vasca5.insert([@chocolate,@chocolate,@chocolate,@vaca,@chocolate,@lentejas,@chocolate])
-		@vascac = PlatoN.new(@vasca5)
+		@vascac = PlatoA.new(@vasca5)
 		@vegetaria3 = Lista.new
 		@vegetaria3.insert([@chocolate,@chocolate,@chocolate,@chocolate,@queso,@leche,@leche,@leche,@leche,@leche,@leche,@huevo])
-		@vegetariaa = PlatoN.new(@vegetaria3)
+		@vegetariaa = PlatoA.new(@vegetaria3)
 		@vegetaria4 = Lista.new
 		@vegetaria4.insert([@chocolate,@leche,@leche,@leche,@leche,@leche,@leche,@huevo,@nuez,@nuez,@queso,@lentejas,@lentejas])
-		@vegetariab = PlatoN.new(@vegetaria4)
+		@vegetariab = PlatoA.new(@vegetaria4)
 		@vegetaliana3 = Lista.new
 		@vegetaliana3.insert([@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas])
-		@vegetalianaa = PlatoN.new(@vegetaliana3)
+		@vegetalianaa = PlatoA.new(@vegetaliana3)
 		@vegetaliana4 = Lista.new
 		@vegetaliana4.insert([@nuez,@nuez,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas,@lentejas])
-		@vegetalianab = PlatoN.new(@vegetaliana4)
+		@vegetalianab = PlatoA.new(@vegetaliana4)
 		@carne3 = Lista.new
 		@carne3.insert([@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@cerdo,@chocolate,@chocolate,@chocolate])
-		@carnea = Lista.new(@carne3)
+		@carnea = PlatoA.new(@carne3)
 		@carne4 = Lista.new
 		@carne4.insert([@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@vaca,@chocolate,@chocolate,@chocolate])
-		@carneb = Lista.new(@carne4)
+		@carnec = PlatoA.new(@carne4)
 		@carne5 = Lista.new
 		@carne5.insert([@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@pollo,@chocolate,@chocolate,@chocolate])
-		@carnec = Lista.new(@carne5)
+		@carneb = PlatoA.new(@carne5)
 	end
 
 	context "Comprobando que se puede instanciar un PlatoN y se puede acceder a sus atributos: " do
@@ -407,6 +407,17 @@ RSpec.describe PlatoN do
 			expect(@vegetalianaa <= @vegetalianab).to eq(true)
 			expect(@vegetalianaa.between?(@vegetalianaa, @vegetalianab)).to eq(true)
 			expect(@vegetalianaa.clamp(@vegetalianaa, @vegetalianab)).to eq(@vegetalianaa)
+		end
+
+		it "Se comparan platos de la dieta locura por la carne." do
+			expect(@carnea == @carneb).to eq(false)
+			expect(@carnea == @carnea).to eq(true)
+			expect(@carnec < @carneb).to eq(true)
+			expect(@carneb > @carnea).to eq(false)
+			expect(@carnec >= @carneb).to eq(false)
+			expect(@carneb <= @carnea).to eq(true)
+			expect(@carneb.between?(@carnec, @carnea)).to eq(true)
+			expect(@carnec.clamp(@carneb, @carnea)).to eq(@carneb)
 		end
 	end
 end
