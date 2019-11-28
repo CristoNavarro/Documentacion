@@ -386,6 +386,28 @@ RSpec.describe PlatoN do
 			expect(@vascaa.between?(@vascab, @vascac)).to eq(true)
 			expect(@vascac.clamp(@vascab, @vascaa)).to eq(@vascaa)
 		end
+
+		it "Se comparan platos de la dieta vegetaria." do
+			expect(@vegetariaa == @vegetariab).to eq(false)
+			expect(@vegetariaa == @vegetariaa).to eq(true)
+			expect(@vegetariaa < @vegetariab).to eq(true)
+			expect(@vegetariaa > @vegetariaa).to eq(false)
+			expect(@vegetariaa >= @vegetariab).to eq(false)
+			expect(@vegetariaa <= @vegetariab).to eq(true)
+			expect(@vegetariaa.between?(@vegetariaa, @vegetariab)).to eq(true)
+			expect(@vegetariaa.clamp(@vegetariaa, @vegetariab)).to eq(@vegetariaa)
+		end
+
+		it "Se comparan platos de la dieta vegetaliana." do
+			expect(@vegetalianaa == @vegetalianab).to eq(false)
+			expect(@vegetalianaa == @vegetalianaa).to eq(true)
+			expect(@vegetalianaa < @vegetalianab).to eq(true)
+			expect(@vegetalianaa > @vegetalianab).to eq(false)
+			expect(@vegetalianaa >= @vegetalianab).to eq(false)
+			expect(@vegetalianaa <= @vegetalianab).to eq(true)
+			expect(@vegetalianaa.between?(@vegetalianaa, @vegetalianab)).to eq(true)
+			expect(@vegetalianaa.clamp(@vegetalianaa, @vegetalianab)).to eq(@vegetalianaa)
+		end
 	end
 end
 
