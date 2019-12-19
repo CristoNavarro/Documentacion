@@ -488,6 +488,8 @@ RSpec.describe PlatoA do
 		@lentejas = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
 		@huevo = Alimento.new("Huevo", 13.0, 1.1, 11.0, 4.2, 5.7)
                 @nuez = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
+		@vaca = Alimento.new("Carne de vaca", 21.1,0.0,3.1,50.0,164.0)
+		@queso = Alimento.new("Queso",25.0,1.3,33.0,11.0,41.0)
 		@vasca = Lista.new
 		@vasca.insert([@chocolate,@chocolate,@chocolate,@tofu,@chocolate,@lentejas,@chocolate])
 		@gases1 = Lista.new
@@ -500,8 +502,18 @@ RSpec.describe PlatoA do
 		@gases2.insert([9.2,2.0,0.3,12.6])
 		@terreno2 = Lista.new
 		@terreno2.insert([13.6,2.2,7.9,17.1])
+		@vasca5 = Lista.new
+		@vasca5.insert([@chocolate,@chocolate,@chocolate,@vaca,@chocolate,@lentejas,@chocolate])
+                @espanola5 = Lista.new
+                @espanola5.insert([@chocolate,@chocolate,@chocolate,@chocolate,@chocolate,@queso,@huevo])
+		@pruebas4 = PlatoA.new(@espanola5)
+                @pruebas3 = PlatoA.new(@vasca5)
 		@pruebas1 = PlatoA.new(@vasca)
 		@pruebas2 = PlatoA.new(@espanola)
+		@array1 = [@pruebas1,@pruebas2,@pruebas3]
+                @precios1 = [12.23,15.60,7.00]
+                @array2 = [@pruebas4,@pruebas2,@pruebas3]
+                @precios2 = [13.75,15.60,7.00]
 	end
 
 	context "Comprobando que se puede instanciar y acceder a los atributos: " do
@@ -548,4 +560,13 @@ RSpec.describe PlatoA do
 			expect(@pruebas2.to_s).to eq("[Gases -> 24.1, Terreno -> 40.8]")
 		end
 	end
+
+	 context "Pruebas para programacion funcional: " do
+                 it "Se obtiene la huella nutricional de un plato." do
+                         expect(@pruebas1.huella).to eq(1.86)
+                         expect(@pruebas2.huella).to eq(1.89)
+                         expect(@pruebas3.huella).to eq(1.86)
+                         expect(@pruebas4.huella).to eq(2.0)
+                 end
+	 end
 end

@@ -167,4 +167,28 @@ class PlatoN
 
 		return suma >= (gramos_total * 0.45)
 	end
+
+	def huella
+                huella = @alimentos.inject([0,0,0]) do |acc, i|
+                        if i.kcal_total < 670
+                                acc[0] += (1.0 * (@gramos[acc[1]].valor / (i.proteinas + i.lipidos + i.carbohidratos)))
+                        elsif i.kcal_total > 830
+                                acc[0] += (3.0 * (@gramos[acc[1]].valor / (i.proteinas + i.lipidos + i.carbohidratos)))
+                        else                                                                                                                         acc[0] += (2.0 * (@gramos[acc[1]].valor / (i.proteinas + i.lipidos + i.carbohidratos)))
+                        end
+                        if (i.gases * 1000.0) < 800
+                                acc[0] += (1.0 * (@gramos[acc[1]].valor / (i.proteinas + i.lipidos + i.carbohidratos)))
+                        elsif (i.gases * 1000.0) > 1200
+                                acc[0] += (3.0 * (@gramos[acc[1]].valor / (i.proteinas + i.lipidos + i.carbohidratos)))
+                        else
+                                acc[0] += (2.0 * (@gramos[acc[1]].valor / (i.proteinas + i.lipidos + i.carbohidratos)))
+			end
+
+			acc[2] += (@gramos[acc[1]].valor / (i.proteinas + i.lipidos + i.carbohidratos))
+                        acc[1] += 1
+                        acc
+		end
+
+		return (huella[0] / (2.0 * huella[2])).round(2)
+	end
 end
