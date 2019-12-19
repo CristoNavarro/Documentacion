@@ -561,17 +561,22 @@ RSpec.describe PlatoA do
 		end
 	end
 
-	 context "Pruebas para programacion funcional: " do
-                 it "Se obtiene la huella nutricional de un plato." do
+	context "Pruebas para programacion funcional: " do
+                it "Se obtiene la huella nutricional de un plato." do
                          expect(@pruebas1.huella).to eq(1.86)
                          expect(@pruebas2.huella).to eq(1.89)
                          expect(@pruebas3.huella).to eq(1.86)
                          expect(@pruebas4.huella).to eq(2.0)
-                 end
+                end
 
-		 it "Se calcula la huella maxima de un array de platos." do
+		it "Se calcula la huella maxima de un array de platos." do
 			 expect(@array1.max).to eq(@pruebas2)
 			 expect(@array2.max).to eq(@pruebas4)
-		 end
-	 end
+		end
+
+		it "Se aumenta el precio de los platos en funcion del de huella maxima" do
+			expect(@precios1.collect { |i| (i * @array1.max.huella).round(2) }).to eq([23.11,29.48,13.23])
+			expect(@precios2.collect { |i| (i * @array2.max.huella).round(2) }).to eq([27.5,31.2,14])
+		end
+	end
 end
