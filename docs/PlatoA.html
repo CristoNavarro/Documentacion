@@ -95,7 +95,15 @@
   </h1>
 
   <section class="description">
-    
+    <dl class="rdoc-list note-list"><dt>Autor
+<dd>
+<p>Cristo Daniel Navarro Rodriguez</p>
+</dd></dl>
+
+<h2 id="class-PlatoA-label-Clase+PlatoA">Clase <a href="PlatoA.html"><code>PlatoA</code></a><span><a href="#class-PlatoA-label-Clase+PlatoA">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Esta clase hereda de la clase <a href="PlatoN.html"><code>PlatoN</code></a>. Con ella representamos las caracteristicas del impacto ambiental del plato.</p>
+
   </section>
 
   
@@ -121,7 +129,7 @@
 
         <div class="method-description">
         
-        
+        <p><a href="Lista.html"><code>Lista</code></a> de los gases emitidos por los alimentos del plato</p>
         
         </div>
       </div>
@@ -134,7 +142,7 @@
 
         <div class="method-description">
         
-        
+        <p><a href="Lista.html"><code>Lista</code></a> del terreno consumido por los alimentos del plato</p>
         
         </div>
       </div>
@@ -162,7 +170,14 @@
 
         <div class="method-description">
           
-          
+          <p>Inicializa el plato “ambiental”</p>
+
+<h4 id="method-c-new-label-Parametros">Parametros<span><a href="#method-c-new-label-Parametros">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>lista</code> - <a href="Lista.html"><code>Lista</code></a> con los alimentos</p>
+</li></ul>
+
+<p>Inicializa la clase madre y las listas. Para cada alimento en el atributo @alimentos, calcula su cantidad en gramos y sobre esta cantidad calcula los gases y el terreno correspondientes.</p>
           
           
             <div class="method-calls-super">
@@ -173,7 +188,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/Practica6/platoa.rb, line 4</span>
+            <pre><span class="ruby-comment"># File lib/Practica6/platoa.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> (<span class="ruby-identifier">lista</span>)
         <span class="ruby-keyword">super</span>(<span class="ruby-identifier">lista</span>)
 
@@ -222,13 +237,15 @@
 
         <div class="method-description">
           
-          
+          <p>Calcula los gases totales emitidos</p>
+
+<p>Suma los gases emitidos por cada alimento</p>
           
           
 
           
           <div class="method-source-code" id="gases_total-source">
-            <pre><span class="ruby-comment"># File lib/Practica6/platoa.rb, line 22</span>
+            <pre><span class="ruby-comment"># File lib/Practica6/platoa.rb, line 43</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gases_total</span>
         <span class="ruby-identifier">suma</span> = <span class="ruby-value">0</span>
 
@@ -261,13 +278,15 @@
 
         <div class="method-description">
           
-          
+          <p>Calcula el terreno total consumido</p>
+
+<p>Suma el terreno consumido por cada alimento</p>
           
           
 
           
           <div class="method-source-code" id="terreno_total-source">
-            <pre><span class="ruby-comment"># File lib/Practica6/platoa.rb, line 32</span>
+            <pre><span class="ruby-comment"># File lib/Practica6/platoa.rb, line 57</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">terreno_total</span>
         <span class="ruby-identifier">suma</span> = <span class="ruby-value">0</span>
 
@@ -300,13 +319,13 @@
 
         <div class="method-description">
           
-          
+          <p>Formatea el plato “ambiental”</p>
           
           
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/Practica6/platoa.rb, line 42</span>
+            <pre><span class="ruby-comment"># File lib/Practica6/platoa.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
         <span class="ruby-node">&quot;[Gases -&gt; #{gases_total}, Terreno -&gt; #{terreno_total}]&quot;</span>
 <span class="ruby-keyword">end</span></pre>
