@@ -464,14 +464,12 @@
           <p>Calcula la huella nutricional del plato</p>
 
 <p>Para cada alimento va comprobando cual es su huella en funcion de las kcal y en funcion de los gases y el resultado lo multiplica por la cantidad del alimento. Una vez terminaa, se calcula la media de la huella del plato.</p>
-
-<p>@return float Valor de retorno</p>
           
           
 
           
           <div class="method-source-code" id="huella-source">
-            <pre><span class="ruby-comment"># File lib/Practica6/platon.rb, line 226</span>
+            <pre><span class="ruby-comment"># File lib/Practica6/platon.rb, line 224</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">huella</span>
         <span class="ruby-identifier">huella</span> = <span class="ruby-ivar">@alimentos</span>.<span class="ruby-identifier">inject</span>([<span class="ruby-value">0</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">acc</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
                 <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">kcal_total</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">670</span>

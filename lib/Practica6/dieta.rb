@@ -19,7 +19,7 @@ class Dieta
 		@alimentos = array
 	end
 
-	# Calcula el impacto ambiental que tiene la dieta formateada como un array +[gases,terreno]+
+	# Calcula el impacto ambiental que tiene la dieta formateada como un array [gases,terreno]
 
 	def impacto 
 		resultado = [0,0]

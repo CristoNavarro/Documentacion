@@ -6,17 +6,17 @@
 
 class Alimento
 	include Comparable
-	# @return [Object] Nombre del alimento
+	# Nombre del alimento
 	attr_reader :nombre
-	# @return [Object] Cantidad de proteinas en gramos
+	# Cantidad de proteinas en gramos
        	attr_reader :proteinas
-	# @return [Object] Cantidad de carbohidratos en gramos
+	# Cantidad de carbohidratos en gramos
 	attr_reader :carbohidratos
-	# @return [Object] Cantidad de lipidos en gramos
+	# Cantidad de lipidos en gramos
 	attr_reader :lipidos
-	# @return [Object] Cantidad de CO2 emitido
+	# Cantidad de CO2 emitido
 	attr_reader :gases
-	# @return [Object] Metros cuadrados de terreno usados al año
+	# Metros cuadrados de terreno usados al año
 	attr_reader :terreno
 
 	# Inicializa el alimento

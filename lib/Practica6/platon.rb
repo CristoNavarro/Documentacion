@@ -220,8 +220,6 @@ class PlatoN
 	# Calcula la huella nutricional del plato
 	#
 	# Para cada alimento va comprobando cual es su huella en funcion de las kcal y en funcion de los gases y el resultado lo multiplica por la cantidad del alimento. Una vez terminaa, se calcula la media de la huella del plato.
-	#
-	# @return float Valor de retorno
 
 	def huella
                 huella = @alimentos.inject([0,0,0]) do |acc, i|

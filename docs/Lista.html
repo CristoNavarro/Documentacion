@@ -247,12 +247,14 @@
 <ul><li>
 <p><code>index</code> - Posicion del elemento en la lista</p>
 </li></ul>
+
+<p>Se mueve por la lista tantas posiciones como indica index</p>
           
           
 
           
           <div class="method-source-code" id="5B-5D-source">
-            <pre><span class="ruby-comment"># File lib/Practica6/lista.rb, line 185</span>
+            <pre><span class="ruby-comment"># File lib/Practica6/lista.rb, line 187</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]</span> (<span class="ruby-identifier">index</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">size</span>
                 <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
@@ -719,7 +721,7 @@
 
           
           <div class="method-source-code" id="valores-source">
-            <pre><span class="ruby-comment"># File lib/Practica6/lista.rb, line 205</span>
+            <pre><span class="ruby-comment"># File lib/Practica6/lista.rb, line 207</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valores</span>
         <span class="ruby-identifier">array</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">size</span>)
         <span class="ruby-identifier">aux</span> = <span class="ruby-ivar">@head</span>

@@ -181,6 +181,8 @@ class Lista
 	# ==== Parametros
 	#
 	# * +index+ - Posicion del elemento en la lista
+	#
+	# Se mueve por la lista tantas posiciones como indica index
 
 	def [] (index)
 		if index >= size
