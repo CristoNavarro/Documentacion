@@ -106,7 +106,7 @@ class PlatoN
 	end	
 			
 	def <=> (other)
-		vct <=> other.vct
+		huella <=> other.huella
 	end
 
 	def espanola
