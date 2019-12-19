@@ -95,7 +95,15 @@
   </h1>
 
   <section class="description">
-    
+    <dl class="rdoc-list note-list"><dt>Autor
+<dd>
+<p>Cristo Daniel Navarro Rodriguez</p>
+</dd></dl>
+
+<h2 id="class-Dieta-label-Clase+Dieta">Clase <a href="Dieta.html"><code>Dieta</code></a><span><a href="#class-Dieta-label-Clase+Dieta">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Esta clase fue creada en las primeras practicas para representar una dieta (conjunto de alimentos).</p>
+
   </section>
 
   
@@ -106,6 +114,27 @@
 
     
 
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-alimentos" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">alimentos</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Array de alimentos de la dieta</p>
+        
+        </div>
+      </div>
+      
+    </section>
     
 
     
@@ -128,13 +157,18 @@
 
         <div class="method-description">
           
-          
+          <p>Inicializa la dieta</p>
+
+<h4 id="method-c-new-label-Parametros">Parametros<span><a href="#method-c-new-label-Parametros">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>array</code> - Array de alimentos</p>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/Practica6/dieta.rb, line 4</span>
+            <pre><span class="ruby-comment"># File lib/Practica6/dieta.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> (<span class="ruby-identifier">array</span>)
         <span class="ruby-ivar">@alimentos</span> = <span class="ruby-identifier">array</span>
 <span class="ruby-keyword">end</span></pre>
@@ -169,13 +203,13 @@
 
         <div class="method-description">
           
-          
+          <p>Calcula las kcal aportadas por la dieta</p>
           
           
 
           
           <div class="method-source-code" id="energia-source">
-            <pre><span class="ruby-comment"># File lib/Practica6/dieta.rb, line 14</span>
+            <pre><span class="ruby-comment"># File lib/Practica6/dieta.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">energia</span>
         <span class="ruby-identifier">resultado</span> = <span class="ruby-value">0</span>;
         <span class="ruby-ivar">@alimentos</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">resultado</span> = <span class="ruby-identifier">resultado</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">kcal_total</span>}
@@ -204,13 +238,13 @@
 
         <div class="method-description">
           
-          
+          <p>Calcula el impacto ambiental que tiene la dieta formateada como un array +[gases,terreno]+</p>
           
           
 
           
           <div class="method-source-code" id="impacto-source">
-            <pre><span class="ruby-comment"># File lib/Practica6/dieta.rb, line 8</span>
+            <pre><span class="ruby-comment"># File lib/Practica6/dieta.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">impacto</span> 
         <span class="ruby-identifier">resultado</span> = [<span class="ruby-value">0</span>,<span class="ruby-value">0</span>]
         <span class="ruby-ivar">@alimentos</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">resultado</span> = <span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">resultado</span>}
@@ -239,13 +273,13 @@
 
         <div class="method-description">
           
-          
+          <p>Calcula las proteinas del conjunto de alimentos</p>
           
           
 
           
           <div class="method-source-code" id="prot-source">
-            <pre><span class="ruby-comment"># File lib/Practica6/dieta.rb, line 20</span>
+            <pre><span class="ruby-comment"># File lib/Practica6/dieta.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prot</span>
         <span class="ruby-identifier">resultado</span> = <span class="ruby-value">0</span>
         <span class="ruby-ivar">@alimentos</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">resultado</span> = <span class="ruby-identifier">resultado</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">proteinas</span>}
