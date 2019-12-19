@@ -1,6 +1,23 @@
+# Autor:: Cristo Daniel Navarro Rodriguez
+#
+# == Clase PaltoN
+#
+# Con esta clase representamos un plato con una serie de alimentos y las cantidades de los mismos. Se incluye el modulo Comparable para poder efectuar comparaciones.
+
 class PlatoN
 	include Comparable
-	attr_reader :alimentos, :gramos
+	# Lista de los alimentos del plato
+	attr_reader :alimentos
+	# Lista con las cantidades de los alimentos en gramos
+	attr_reader :gramos
+
+	# Inicializa el plato "nutricional"
+	#
+	# ==== Parametros
+	#
+	# * +lista+ - Lista con todos los alimentos
+	#
+	# Para cada alimento de la lista comprueba si ya lo ha añadido a @alimentos, si no lo ha hecho, lo añade y aumenta su cantidad en @gramos. Pero si ya lo ha añadido, solo aumenta su cantidad.
 
 	def initialize (lista)
 		@alimentos = Lista.new
@@ -18,6 +35,8 @@ class PlatoN
 		end
 	end
 
+	# Calcula los gramos totales entre los alimentos del plato
+
 	def gramos_total
 		suma = 0
 		
@@ -27,6 +46,8 @@ class PlatoN
 
 		return suma.round(2)
 	end
+
+	# Calcula las proteinas totales del plato
 
 	def prot
 		suma = 0
@@ -42,6 +63,8 @@ class PlatoN
 		return ((suma * 100) / gramos_total).round(2)
 	end
 
+	# Calcula los carbohidratos del plato
+
 	def car
 		suma = 0
 		x = 0
@@ -55,6 +78,8 @@ class PlatoN
 
 		return ((suma * 100) / gramos_total).round(2)
 	end
+	
+	# Calcula los lipidos del plato
 
 	def lip
 		suma = 0
@@ -70,6 +95,10 @@ class PlatoN
 		return ((suma * 100) / gramos_total).round(2)
 	end
 
+	# Calcula el Valor Calorico Total del plato
+	#
+	# Este valor depende de las proteinas, los carbohidratos y los lipidos
+
 	def vct
 		suma = 0
 		
@@ -79,6 +108,8 @@ class PlatoN
 		
 		return suma.round(2)
 	end	
+
+	# Formatea el plato
 
 	def to_s
 
@@ -104,18 +135,32 @@ class PlatoN
 
 		return cadena
 	end	
+
+	# Metodo necesario para comparar platos
+	#
+	# ==== Parametros
+	#
+	# * +other+ - Plato con el que se compara
+	#
+	# Se comparan en funcion de la huella nutricional del plato
 			
 	def <=> (other)
 		huella <=> other.huella
 	end
 
+	# Comprueba si la dieta es espanola
+
 	def espanola
 		return ((prot >= 14.0 || prot <= 26.0) && (car >= 34.0 || car <= 46.0) && (lip >= 34.0 || lip <= 46.0))
 	end
 
+	# Comprueba si la dieta es vasca
+
 	def vasca
 		return ((prot >= 9.0 || prot <= 21.0) && (car >= 54.0 || car <= 66.0) && (lip >= 19.0 || lip <= 31.0))
 	end
+
+	# Comprueba si la dieta es vegetaria
 
 	def vegetaria
 		cerdo = Alimento.new("Cerdo", 21.5, 0.0, 6.3, 7.6, 11.0)
@@ -132,6 +177,8 @@ class PlatoN
 
 		return ((prot >= 14.0 || prot <= 26.0) && (car >= 34.0 || car <= 46.0) && (lip >= 34.0 || lip <= 46.0))
 	end
+
+	# Comprueba si la dieta es vegetaliana
 
 	def vegetaliana
 		huevo = Alimento.new("Huevo", 13.0, 1.1, 11.0, 4.2, 5.7)
@@ -152,6 +199,8 @@ class PlatoN
 		return true
 	end
 
+	# Comprueba si la dieta es "Locura por la carne"
+
 	def carne
 		cerdo = Alimento.new("Cerdo", 21.5, 0.0, 6.3, 7.6, 11.0)
 		cordero = Alimento.new("Cordero",18.0,0.0,3.1,50.0,164.0)
@@ -167,6 +216,12 @@ class PlatoN
 
 		return suma >= (gramos_total * 0.45)
 	end
+
+	# Calcula la huella nutricional del plato
+	#
+	# Para cada alimento va comprobando cual es su huella en funcion de las kcal y en funcion de los gases y el resultado lo multiplica por la cantidad del alimento. Una vez terminaa, se calcula la media de la huella del plato.
+	#
+	# @return float Valor de retorno
 
 	def huella
                 huella = @alimentos.inject([0,0,0]) do |acc, i|
